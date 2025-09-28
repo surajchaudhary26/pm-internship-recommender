@@ -1,8 +1,5 @@
-import re
-from typing import List, Dict
-
-def normalize(text: str) -> str:
-    return re.sub(r"[^a-z0-9 ]", " ", (text or "").lower()).strip()
+from typing import Dict
+from backend.utils.helpers import normalize   # ✅ import helper
 
 def recommend_internships(candidate: Dict, internships, k: int = 5):
     scored = []
