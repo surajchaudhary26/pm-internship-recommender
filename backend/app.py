@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Optional
-from backend.recommender import recommend_internships
+from ml_engine.recommender import recommend_internships
 import uvicorn
 import pandas as pd
 import os
