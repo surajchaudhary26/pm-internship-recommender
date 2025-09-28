@@ -1,0 +1,6 @@
+internship_id,title,skills,sector,location,description,apply_link
+1,Web Developer Intern,HTML;CSS;JS,IT,Delhi,Work on frontend development with HTML/CSS/JS,http://example.com/apply/1
+2,Data Analyst Intern,Python;Pandas;SQL,Analytics,Bangalore,Assist in data cleaning and analysis using Python and SQL,http://example.com/apply/2
+3,Marketing Intern,Communication;Sales,Marketing,Mumbai,Support marketing campaigns and social media,http://example.com/apply/3
+4,Content Writer Intern,Writing;Research;SEO,Content,Remote,Create articles and SEO-friendly content,http://example.com/apply/4
+5,Research Intern,Matlab;Statistics,Research,Chennai,Assist faculty in experiments and data analysis,http://example.com/apply/5
