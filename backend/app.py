@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Optional
-from recommender import recommend_internships
+from backend.recommender import recommend_internships
 import uvicorn
-import csv
+import pandas as pd
 import os
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -26,11 +26,6 @@ app.add_middleware(
 async def root():
     return {"message": "PM Internship Recommender API is running 🚀"}
 
-# ✅ Load internships once
-with open(DATA_PATH, newline="", encoding="utf-8") as f:
-    reader = csv.DictReader(f)
-    INTERNSHIPS = [row for row in reader]
-
 # ✅ Candidate schema
 class Candidate(BaseModel):
     education: Optional[str] = None
@@ -41,8 +36,9 @@ class Candidate(BaseModel):
 
 # ✅ Recommend endpoint
 @app.post("/recommend")
-async def recommend(candidate: Candidate):
-    recs = recommend_internships(candidate.dict(), INTERNSHIPS, candidate.max_results)
+def recommend(candidate: Candidate):
+    internships = pd.read_csv(DATA_PATH)
+    recs = recommend_internships(candidate.dict(), internships, candidate.max_results)
     return {"recommendations": recs}
 
 if __name__ == "__main__":
